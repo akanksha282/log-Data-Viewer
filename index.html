@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log Data Viewer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      text-align: center;
+    }
+
+    .filter-box {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    #msgInput {
+      margin-top: 10px;
+      padding: 10px;
+      width: 80%;
+      font-size: 16px;
+    }
+
+    #data-container {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .log-item {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      max-width: 100%;
+      white-space: nowrap;
+      word-wrap: break-word;
+      overflow-x: auto; 
+
+    }
+    
+
+    /* .log-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    max-width: 300px;
+    word-wrap: break-word;
+  } */
+  </style>
+  
+</head>
+<body>
+  <div class="filter-box" onclick="filterData('level')">
+    <label for="level">Level</label>
+    <input type="text" id="level" placeholder="Enter level...">
+   
+  </div>
+
+  <div class="filter-box" onclick="filterData('timestamp')">
+    <label for="timestamp">Timestamp</label>
+    <input type="text" id="timestamp" placeholder="Enter timestamp...">
+  </div>
+
+  <div class="filter-box" onclick="filterData('resourceId')">
+    <label for="resourceId">Resource ID</label>
+    <input type="text" id="resourceId" placeholder="Enter resourceId...">
+  </div>
+
+  <div class="filter-box" onclick="filterData('spanId')">
+    <label for="spanId">Span ID</label>
+    <input type="text" id="spanId" placeholder="Enter spanId...">
+  </div>
+
+  <div class="filter-box" onclick="filterData('commit')">
+    <label for="commit">Commit</label>
+    <input type="text" id="commit" placeholder="Enter commit...">
+  </div>
+
+  <div class="filter-box" onclick="filterData('traceId')">
+    <label for="traceId">Trace ID</label>
+    <input type="text" id="traceId" placeholder="Enter traceId...">
+  </div>
+
+  <div>
+    <textarea id="msgInput" placeholder="Search by Message..." oninput="searchData()"></textarea>
+  </div>
+   <!-- Result container  -->
+   <div id="resultContainer"></div>
+   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+   <script src="/script.js"></script>
+
+</body>
+</html>
